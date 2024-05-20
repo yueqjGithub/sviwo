@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import './app.scss'
 import BackGround from './components/background'
 import SkyBg from './components/sky'
+import Content from './components/content'
 function App() {
   const setHtmlFontSize = (designWidth: number) => {
     const html = document.getElementsByTagName('html')[0]
@@ -19,6 +20,7 @@ function App() {
     <div className={`app-container`}>
       <BackGround />
       <SkyBg></SkyBg>
+      <Content></Content>
     </div>
   )
 }
