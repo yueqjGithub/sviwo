@@ -25,6 +25,7 @@ html {
   font-size: 1vw;
   width: 100vw;
   height: 100vh;
+  background: #040007;
 }
 
 body {
@@ -33,6 +34,7 @@ body {
   height: 100%;
   overflow: hidden;
   color: var(--xy-gray-1);
+  margin: auto;
 }
 
 #root {
@@ -165,7 +167,8 @@ body {
   --adm-color-primary: var(--xy-primary);
 }
 .app-container {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  position: relative;
 }

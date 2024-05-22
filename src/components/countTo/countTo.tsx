@@ -1,11 +1,12 @@
-import { FC, useEffect, useTransition, useState } from "react";
+import { FC, useState } from "react";
 import styles from './index.module.scss'
-import { CountUp } from "use-count-up";
+import CountUp from "react-countup";
 
 type Props = {
   start: number
   add: number
   interval: number
+  duration?: number
   className?: string
   style?: React.CSSProperties
 }
@@ -15,28 +16,18 @@ const CountTo: FC<Props> = ({
   add,
   interval,
   className,
+  duration,
   style,
 }) => {
-  const [isPending, startTransition] = useTransition()
   const [cur, setCur] = useState(start)
   const [end, setEnd] = useState(start + add)
-  console.log(isPending, cur, end)
   const addFun = () => {
     const _cur = end
     const _end = end + add
-    startTransition(() => {
-      setCur(_cur)
-      setEnd(_end)
-    })
+    setCur(_cur)
+    setEnd(_end)
   }
-  useEffect(() => {
-    const timer = setInterval(() => {
-      addFun()
-    }, interval)
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
+  
   return (
     <div
       style={{
@@ -45,8 +36,17 @@ const CountTo: FC<Props> = ({
       className={`${styles.container} ${className}`}
     >
       <CountUp
-        start={start}
+        start={cur}
         end={end}
+        duration={duration}
+        onEnd={() => {
+          console.log('end')
+          setTimeout(() => {
+            addFun()
+          }, interval)
+          // setCur(val => val + add)
+          // setEnd(val => val + add)
+        }}
       ></CountUp>
     </div>
   )

@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react"
-import { MOCK_DATA } from "./common"
 import styles from './index.module.scss'
-import CountTo from "../countTo/countTo"
+import CountTo from "../../../countTo/countTo"
+import { GuageDatas } from "../../common"
 const Guage: FC = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [ra, setRa] = useState(0)
@@ -19,17 +19,18 @@ const Guage: FC = () => {
   return (
     <div className={`full-width flex-row flex-jst-ard flex-ali-center ${styles.container}`} ref={ref}>
       {
-        MOCK_DATA.map((item, idx) => {
+        GuageDatas.map((item, idx) => {
+          const _intervalTime = 5000 + Math.floor(Math.random() * 3000)
           return (
             <div className={`${styles.item} flex-col flex-jst-btw flex-ali-center flex-1`} key={item.key}>
               <div className={`${styles.title}`}>{item.key}</div>
               <div className={`${styles.countContainer} full-width flex-row flex-jst-center flex-ali-start`} style={{ '--ra': ra, '--delay': `${idx / 10}s` } as any}>
                 <svg className={`${styles.svg}`} width={ra} height={ra}>
                   <linearGradient id={`gradient${idx}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color={`${idx === 1 ? '#A964FF' : '#22AFFF'}`}>
+                    <stop offset="0%" stopColor={`${idx === 1 ? '#A964FF' : '#22AFFF'}`}>
                       <animate attributeName="offset" values="0;1" dur={`${idx + 8}s`} repeatCount="indefinite" />
                     </stop>
-                    <stop offset="100%" stop-color={`${idx === 1 ? '#22AFFF' : '#A964FF'}`}>
+                    <stop offset="100%" stopColor={`${idx === 1 ? '#22AFFF' : '#A964FF'}`}>
                       <animate attributeName="offset" values="1;2" dur={`${idx + 8}s`} repeatCount="indefinite" />
                     </stop>
                   </linearGradient>
@@ -43,10 +44,23 @@ const Guage: FC = () => {
                   ></circle>
                 </svg>
                 <CountTo
-                start={item.value}
-                add={item.day_add}
-                interval={5000 + Math.floor(Math.random() * 3000)}
+                  start={item.value}
+                  add={item.per_add}
+                  interval={_intervalTime}
+                  className={`${styles.countTo}`}
+                  duration={2}
                 ></CountTo>
+                <div className={`${styles.dayAdd} flex-row flex-jst-center flex-ali-center`}>
+                  <span>+</span>
+                  <CountTo
+                    start={item.day_add_start}
+                    add={item.per_add}
+                    interval={_intervalTime + 500}
+                    className={`${styles.dayAddCountTo}`}
+                    duration={1.5}
+                  ></CountTo>
+                  <span>{`(24h)`}</span>
+                </div>
               </div>
             </div>
           )

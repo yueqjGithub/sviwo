@@ -4,16 +4,41 @@ import './app.scss'
 import BackGround from './components/background'
 import SkyBg from './components/sky'
 import Content from './components/content'
+
+const designWidth = 1920
+const designHeight = 1080
+
 function App() {
-  const setHtmlFontSize = (designWidth: number) => {
+  const setHtmlFontSize = () => {
+    // body
+    const screenWidth = window.innerWidth
+    const screenHeight = window.innerHeight
     const html = document.getElementsByTagName('html')[0]
-    html.style.fontSize = `${(document.body.clientWidth / designWidth) * 625}%`
+
+    if (screenWidth / screenHeight > designWidth / designHeight) { // 更矮
+      const _h = screenHeight
+      const _w = Math.floor(screenHeight / designHeight * designWidth)
+
+      document.body.style.width = `${_w}px`
+      document.body.style.height = `${_h}px`
+
+      html.style.fontSize = `${(_w / designWidth) * 625}%`
+    } else {
+      const _w = screenWidth
+      const _h = Math.floor(screenWidth / designWidth * designHeight)
+
+      document.body.style.width = `${_w}px`
+      document.body.style.height = `${_h}px`
+
+      html.style.fontSize = `${(_w / designWidth) * 625}%`
+    }
+
   }
   useEffect(() => {
-    setHtmlFontSize(1920)
-    window.addEventListener('resize', () => setHtmlFontSize(1920))
+    setHtmlFontSize()
+    window.addEventListener('resize', () => setHtmlFontSize())
     return () => {
-      window.removeEventListener('resize', () => setHtmlFontSize(1920))
+      window.removeEventListener('resize', () => setHtmlFontSize())
     }
   }, [])
   return (

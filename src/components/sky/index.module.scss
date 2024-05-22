@@ -20,31 +20,32 @@
 
 .overflow {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   left: 0;
   top: 0;
-  .container {
-    width: 200vmax;
-    height: 200vmax;
+  .mountain {
+    width: 100%;
+    height: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    .mountain {
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-image: url('../../assets/image/mountain.png'), linear-gradient(0deg, rgba(12, 7, 38, 1) 0%, rgba(26, 14, 68, 1) 50%,transparent);
-      background-size: 100%;
-      background-repeat: no-repeat;
-      background-blend-mode: multiply;
-      background-position: left bottom;
-    }
+    background-image: url('../../assets/image/mountain.png'), linear-gradient(0deg, rgba(12, 7, 38, 1) 0%, rgba(26, 14, 68, 1) 35%,transparent);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-position: left bottom;
+  }
+  .container {
+    width: 150vmax;
+    height: 150vmax;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     .layer {
       border-radius: 50%;
       position: absolute;
@@ -54,7 +55,7 @@
       // animation: skyRotate 10s linear infinite reverse;
     }
     $duration: 1600s;
-    $count: 3000;
+    $count: 4000;
     @for $i from 1 through 3 {
       $duration: calc($duration / 2);
       $count: floor(calc($count / 2));
