@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react"
 import { MOCK_DATA } from "./common"
 import styles from './index.module.scss'
+import CountTo from "../countTo/countTo"
 const Guage: FC = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [ra, setRa] = useState(0)
@@ -41,6 +42,11 @@ const Guage: FC = () => {
                     strokeDasharray={`${Math.floor(2 * Math.PI * Math.floor(ra / 2 * 0.9) * 75 / 100)} 300%`}
                   ></circle>
                 </svg>
+                <CountTo
+                start={item.value}
+                add={item.day_add}
+                interval={5000 + Math.floor(Math.random() * 3000)}
+                ></CountTo>
               </div>
             </div>
           )

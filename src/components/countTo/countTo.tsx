@@ -1,5 +1,6 @@
 import { FC, useEffect, useTransition, useState } from "react";
 import styles from './index.module.scss'
+import { CountUp } from "use-count-up";
 
 type Props = {
   start: number
@@ -9,7 +10,7 @@ type Props = {
   style?: React.CSSProperties
 }
 
-const CountTo:FC<Props> = ({
+const CountTo: FC<Props> = ({
   start,
   add,
   interval,
@@ -38,11 +39,16 @@ const CountTo:FC<Props> = ({
   }, [])
   return (
     <div
-    style={{
-      ...style
-    }}
-    className={`${styles.container} ${className}`}
-    ></div>
+      style={{
+        ...style
+      }}
+      className={`${styles.container} ${className}`}
+    >
+      <CountUp
+        start={start}
+        end={end}
+      ></CountUp>
+    </div>
   )
 }
 
