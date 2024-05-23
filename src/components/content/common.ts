@@ -1,3 +1,19 @@
+export type PANNEL_DATA = {
+  name: string
+  degreeDatas: {
+    key: string
+    degree: number
+    perAdd: number
+  }[]
+  tradingDatas: {
+    key: string
+    current: number
+    target: number
+    perAdd: number
+  }[]
+}
+
+/** 顶部面板数据 */
 export const GuageDatas = [
   {
     key: 'Total Online Population',
@@ -19,38 +35,24 @@ export const GuageDatas = [
   }
 ]
 
-export type PANNEL_DATA = {
-  name: string
-  degreeDatas: {
-    key: string
-    degree: number
-    perAdd: number
-  }[]
-  tradingDatas: {
-    key: string
-    current: number
-    target: number
-    perAdd: number
-  }[]
-}
-
+/** 左边面板数据 */
 export const panelDatasL: PANNEL_DATA = {
   name: 'Battery Industry',
   degreeDatas: [
     {
       key: 'Power capacity',
       degree: 40,
-      perAdd: 0.02
+      perAdd: 0.002
     },
     {
       key: 'Solar Power Generation',
       degree: 70,
-      perAdd: 0.02
+      perAdd: 0.002
     },
     {
       key: 'Battery Cycle Count',
       degree: 52,
-      perAdd: 0.02
+      perAdd: 0.002
     }
   ],
   tradingDatas: [
@@ -81,28 +83,29 @@ export const panelDatasL: PANNEL_DATA = {
   ]
 }
 
+/** 右边面板数据 */
 export const panelDatasR: PANNEL_DATA = {
   name: 'Battery Industry',
   degreeDatas: [
     {
       key: 'Distance Traveled',
       degree: 40,
-      perAdd: 0.02
+      perAdd: 0.002
     },
     {
       key: 'Solar Power Generation',
       degree: 70,
-      perAdd: 0.02
+      perAdd: 0.002
     },
     {
       key: 'Battery Cycle Count',
       degree: 52,
-      perAdd: 0.02
+      perAdd: 0.002
     },
     {
       key: 'Charge Capacity',
       degree: 42,
-      perAdd: 0.02
+      perAdd: 0.002
     }
   ],
   tradingDatas: [
@@ -131,4 +134,14 @@ export const panelDatasR: PANNEL_DATA = {
       perAdd: 15
     }
   ]
+}
+
+/** 中间数据 */
+export const centerData = {
+  percent: {
+    start: 36.15,
+    per_add: 0.002,
+  },
+  chip: 36,
+  other: 64
 }

@@ -9,6 +9,7 @@ type Props = {
   duration?: number
   className?: string
   style?: React.CSSProperties
+  decimals?: number
 }
 
 const CountTo: FC<Props> = ({
@@ -18,6 +19,7 @@ const CountTo: FC<Props> = ({
   className,
   duration,
   style,
+  decimals
 }) => {
   const [cur, setCur] = useState(start)
   const [end, setEnd] = useState(start + add)
@@ -36,6 +38,7 @@ const CountTo: FC<Props> = ({
       className={`${styles.container} ${className}`}
     >
       <CountUp
+        decimals={decimals}
         start={cur}
         end={end}
         duration={duration}
