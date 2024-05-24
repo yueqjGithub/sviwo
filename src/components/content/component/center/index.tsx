@@ -1,11 +1,21 @@
-import { FC } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import styles from './index.module.scss'
 import CountTo from "@/components/countTo/countTo";
 import { centerData } from "../../common";
 import CountUp from "react-countup";
 import LogoImg from '@/assets/image/logo.png'
+import Line from "./line";
 
 const Center: FC = () => {
+  const [lineW, setLineW] = useState(0)
+  const lineRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (lineRef.current) {
+      setTimeout(() => {
+        setLineW(lineRef.current!.clientWidth)
+      }, 300)
+    }
+  }, [])
   return (
     <div className={`${styles.center} full-width full-height flex-col flex-jst-start flex-ali-center`}>
       <div className={`${styles.percent} flex-row flex-jst-center flex-ali-center`}>
@@ -16,7 +26,11 @@ const Center: FC = () => {
           decimals={2}
         ></CountTo>%
       </div>
-      <div className="flex-1"></div>
+      <div className="flex-1 full-width" ref={lineRef} style={{ minHeight: 0 }}>
+        {
+          lineW > 0 && <Line w={lineW}></Line>
+        }
+      </div>
       <div className={`${styles.chipShow} full-width flex-row flex-jst-center flex-ali-center`}>
         <div className={`${styles.item} flex-row flex-jst-start flex-ali-center`}>
           <div className={`${styles.circle}`}></div>

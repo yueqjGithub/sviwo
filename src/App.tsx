@@ -14,7 +14,7 @@ function App() {
     const screenWidth = window.innerWidth
     const screenHeight = window.innerHeight
     const html = document.getElementsByTagName('html')[0]
-
+    
     if (screenWidth / screenHeight > designWidth / designHeight) { // 更矮
       const _h = screenHeight
       const _w = Math.floor(screenHeight / designHeight * designWidth)
