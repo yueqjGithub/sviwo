@@ -1,27 +1,17 @@
 import { FC, useEffect, useRef, useState } from "react";
 import styles from './index.module.scss'
 
-const Line: FC = () => {
+type Props = {
+  w: number
+}
+
+const Line: FC<Props> = ({ w }) => {
+  const h = Math.floor(w / 2.36)
   const ref = useRef<HTMLDivElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
-  const [w, setW] = useState(0)
-  const [h, setH] = useState(0)
   const [len, setLen] = useState(0)
   const [aniStep, setAniStep] = useState(0)
-  const setUnit = () => {
-    const _w = ref.current!.clientWidth
-    const _h = Math.floor(_w / 2.36)
-    setW(_w)
-    setH(_h)
-  }
-  
-  useEffect(() => {
-    setUnit()
-    window.addEventListener('resize', () => setUnit())
-    return () => {
-      window.removeEventListener('resize', () => setUnit())
-    }
-  }, [])
+
   useEffect(() => {
     if (pathRef.current && h !== 0) {
       setLen(pathRef.current.getTotalLength())

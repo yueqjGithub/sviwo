@@ -21,7 +21,7 @@ const IMG_KEYS: Record<string, string> = {
 
 const Panel: FC<Props> = ({ pannelData }) => {
   return (
-    <div className={`${styles.panel} full-height flex-col flex-jst-start flex-ali-center`}>
+    <div className={`${styles.panel} full-width full-height flex-col flex-jst-start flex-ali-center`}>
       <div className={`${styles.degreeOut} full-width flex-1 flex-col flex-jst-btw flex-ali-center`}>
         {
           pannelData.degreeDatas.map(item => {

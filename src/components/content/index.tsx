@@ -10,7 +10,7 @@ const ContentPanel:FC = () => {
       <Guage></Guage>
       <div className="full-width flex-row flex-jst-btw flex-ali-start flex-1">
         <Panel pannelData={panelDatasL}></Panel>
-        <div className="flex-1 full-height">
+        <div className={`full-height ${styles.centerContainer}`}>
           <Center></Center>
         </div>
         <Panel pannelData={panelDatasR}></Panel>
