@@ -26,7 +26,7 @@ const Center: FC = () => {
           decimals={2}
         ></CountTo>%
       </div>
-      <div className="flex-1 full-width" ref={lineRef}>
+      <div className="flex-1 full-width" ref={lineRef} style={{ minHeight: 0 }}>
         {
           lineW > 0 && <Line w={lineW}></Line>
         }

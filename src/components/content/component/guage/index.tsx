@@ -6,9 +6,11 @@ const Guage: FC = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [ra, setRa] = useState(0)
   const changeRa = () => {
-    const _w = ref.current!.clientWidth
-    const result = Math.floor(_w / 3 * 0.5)
-    setRa(result)
+    setTimeout(() => {
+      const _w = ref.current!.clientWidth
+      const result = Math.floor(_w / 3 * 0.5)
+      setRa(result)
+    }, 300)
   }
   useEffect(() => {
     if (ref.current) {

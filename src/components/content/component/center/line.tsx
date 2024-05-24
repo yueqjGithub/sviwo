@@ -27,7 +27,7 @@ const Line: FC<Props> = ({ w }) => {
     }
   }, [pathRef, h])
   return (
-    <div className={`${styles.line} full-width full-height`} ref={ref}>
+    <div style={{ '--h': `${h}px` } as any} className={`${styles.line} full-width full-height`} ref={ref}>
       {/* 心电图 */}
       {
         h > 0 && (

@@ -45,6 +45,7 @@
 }
 
 .line {
+  height: var(--h);
   .path {
     stroke-dasharray: var(--l);
     stroke-dashoffset: var(--l);

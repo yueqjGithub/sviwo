@@ -8,7 +8,7 @@ const ContentPanel:FC = () => {
   return (
     <div className={`${styles.container} flex-col flex-jst-start flex-ali-center`}>
       <Guage></Guage>
-      <div className="full-width flex-row flex-jst-btw flex-ali-start flex-1">
+      <div className="full-width flex-row flex-jst-btw flex-ali-start flex-1" style={{ minHeight: 0 }}>
         <Panel pannelData={panelDatasL}></Panel>
         <div className={`full-height ${styles.centerContainer}`}>
           <Center></Center>
