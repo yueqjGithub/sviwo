@@ -3,10 +3,12 @@
     color: #fff;
     font-size: .56rem;
     font-weight: bold;
+    margin-bottom: .18rem;
   }
   .chipShow {
     font-size: .15rem;
     color: #fff;
+    margin-top: .3rem;
     .item {
       .circle {
         width: .15rem;
@@ -39,5 +41,32 @@
       height: auto;
       display: block;
     }
+  }
+}
+
+.line {
+  .path {
+    stroke-dasharray: var(--l);
+    stroke-dashoffset: var(--l);
+    // animation: strockAni 3s cubic-bezier(1, 0.05, 0.33, 0.54) infinite forwards;
+    // animation-delay: .5s;
+    &.start {
+      stroke-dashoffset: var(--l);
+      transition: stroke-dashoffset 0s;
+    }
+    &.mid {
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset cubic-bezier(0.72, 0.26, 0.54, 0.94) 2s;
+    }
+    &.end {
+      stroke-dashoffset: calc(var(--l) * -1);
+      transition: stroke-dashoffset linear 2s;
+    }
+  }
+}
+
+@keyframes strockAni {
+  to {
+    stroke-dashoffset: 0;
   }
 }

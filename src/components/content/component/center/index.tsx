@@ -4,6 +4,7 @@ import CountTo from "@/components/countTo/countTo";
 import { centerData } from "../../common";
 import CountUp from "react-countup";
 import LogoImg from '@/assets/image/logo.png'
+import Line from "./line";
 
 const Center: FC = () => {
   return (
@@ -16,7 +17,9 @@ const Center: FC = () => {
           decimals={2}
         ></CountTo>%
       </div>
-      <div className="flex-1"></div>
+      <div className="flex-1 full-width">
+        <Line></Line>
+      </div>
       <div className={`${styles.chipShow} full-width flex-row flex-jst-center flex-ali-center`}>
         <div className={`${styles.item} flex-row flex-jst-start flex-ali-center`}>
           <div className={`${styles.circle}`}></div>
