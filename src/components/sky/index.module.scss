@@ -55,12 +55,12 @@
       // animation: skyRotate 10s linear infinite reverse;
     }
     $duration: 1600s;
-    $count: 4000;
+    $count: 5000;
     @for $i from 1 through 3 {
       $duration: calc($duration / 2);
       $count: floor(calc($count / 2));
       .layer#{$i} {
-        $size: #{floor(calc($i * 1.5))}px;
+        $size: #{calc($i / 100)}rem;
         width: $size;
         height: $size;
         box-shadow: getShadows($count);

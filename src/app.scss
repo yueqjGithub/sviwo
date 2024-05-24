@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'HonorHeavy';
+  src: url('./assets/font/HONORSans-Heavy.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceHanBold';
+  src: url('./assets/font/SourceHanSansSC-Bold-2.ttf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -27,6 +41,7 @@ html {
   height: 100vh;
   background: #040007;
   display: flex;
+  font-family: 'SourceHanBold';
 }
 
 body {

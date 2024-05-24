@@ -10,7 +10,8 @@ export default defineConfig({
     }
   },
   server: {
-    port: 5377
+    port: 5377,
+    host: true,
   },
   base: './',
 })
